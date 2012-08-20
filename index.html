@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Coffee BF</title>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="coffee-script.js"></script>
+  <script type="text/coffeescript" src="bf.coffee"></script>
+  <style>
+  body {
+    background-color: #09F;
+    font-family: Arial;
+    color: #444;
+    margin:0;
+    padding: 0;
+  }
+
+  img {
+    margin: 20px;
+  }
+
+  input[type="text"],
+  textarea {
+    width:100%;
+    height: 100px;
+    padding: 0;
+    font-family: Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace;
+    border: 3px solid #ccc;
+  }
+  button {
+    border: none;
+    color: #fff;
+    background-color: #09F;
+    font-weight: bold;
+    padding: 3px 7px;
+  }
+  button:hover {
+    border: none;
+    color: #fff;
+    background-color: #08B;
+    font-weight: bold;
+    padding: 3px 7px;
+  }
+  #content {
+    background-color: #FFF;
+    width: 910px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .current {
+    background-color: #09F;
+    color: #FFF;
+  }
+
+  #execution, #buffer, #output, #inputTape {
+    background-color: #f3f3f3;
+    font-size: 20pt;
+    font-family: Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace;
+  }
+
+  #error {
+    color: #F00;
+  }
+  </style>
+</head>
+
+<body>
+  <div id="content">
+    <h2>BrainFuck interpreter</h2>
+    <label><strong>Code:</strong></label><br />
+    <textarea id="program" type="text"></textarea>
+    <br />
+    <label><strong>Input:</strong></label><br />
+    <textarea id="input" type="text"></textarea>
+    <br />
+    <br />
+    <button id="run" onclick="BF.loadAndRun()">Run</button>
+    <button id="step" onclick="BF.loadAndStep()">Step by step</button>
+    <button id="step" onclick="BF.clean()">Clean</button>
+
+    <p>
+      <div id="progress"></div>
+      <br />
+      <strong>Instructions: </strong><br />
+      <div id="execution">&nbsp</div>
+      <br />
+      <strong>Memory: </strong><br />
+      <div id="buffer">&nbsp</div>
+      <br />
+      <strong>Input:</strong><br />
+      <div id="inputTape">&nbsp</div>
+      <br />
+      <strong>Output:</strong><br />
+      <div id="output">&nbsp</div>
+      <br />
+      <div id="error"></div>
+    </p>
+  </div>
+</body>
+</html>
